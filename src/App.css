@@ -1,38 +1,249 @@
-.App {
-  text-align: center;
+/* App.css - Toàn bộ CSS thuần cho đề thi LTW */
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fafafa;
+  color: #333;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
+.app-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
   min-height: 100vh;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+/* 1. Thanh menu Navbar */
+nav {
   display: flex;
-  flex-direction: column;
+  gap: 20px;
+  padding: 15px 0;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eee;
+}
+
+nav a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+  transition: color 0.2s;
+}
+
+/* CSS cho mục menu đang chọn theo đúng yêu cầu đề bài */
+.active {
+  color: red !important;
+  font-weight: bold !important;
+}
+
+/* Tiêu đề & thông báo */
+h1, h2, h3 {
+  color: #222;
+  margin-top: 0;
+}
+
+.loading-text, .error-text {
+  font-size: 18px;
+  padding: 20px 0;
+}
+
+.error-text {
+  color: #d9534f;
+}
+
+/* 2. Trang chủ */
+.home-page {
+  padding: 10px 0;
+}
+
+.home-stats {
+  margin-top: 15px;
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+/* 3. Trang Danh sách */
+.expense-list-page {
+  padding: 10px 0;
+}
+
+.device-mode {
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #555;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-bottom: 15px;
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 6px;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-group label {
+  font-weight: bold;
+}
+
+.filter-group input, .filter-group select {
+  padding: 6px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.item-count {
+  margin-bottom: 15px;
+  font-weight: bold;
+  color: #444;
+}
+
+/* Bảng danh sách chi tiêu */
+.table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+th, td {
+  border: 1px solid #ddd;
+  padding: 10px 12px;
+  text-align: left;
+}
+
+th {
+  background-color: #f1f1f1;
+  font-weight: bold;
+}
+
+/* Rê chuột lên một dòng thì dòng đó đổi màu nền */
+tbody tr:hover {
+  background-color: #f7f9fa;
+}
+
+/* Trạng thái chưa thanh toán có chữ màu cam */
+.status-unpaid {
+  color: orange;
+  font-weight: bold;
+}
+
+.status-paid {
+  color: #2e7d32;
+  font-weight: bold;
+}
+
+/* Các nút bấm thao tác */
+button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.btn-toggle {
+  background-color: #1976d2;
+  color: white;
+  margin-right: 8px;
+}
+
+.btn-toggle:hover {
+  background-color: #1565c0;
+}
+
+.btn-delete {
+  background-color: #e53935;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.btn-delete:hover {
+  background-color: #c62828;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* CSS cho chế độ Điện thoại theo mục 2.5 của đề */
+.mobile .col-category,
+.mobile .col-date {
+  display: none;
+}
+
+/* 4. Trang Thêm mới */
+.add-expense-page {
+  max-width: 500px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-group label {
+  font-weight: bold;
+}
+
+.form-group input, .form-group select {
+  padding: 8px 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 15px;
+}
+
+.btn-submit {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.btn-submit:hover {
+  background-color: #1b5e20;
+}
+
+.form-error {
+  margin-top: 15px;
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+/* 5. Trang Chi tiết */
+.expense-detail-page {
+  padding: 10px 0;
+  line-height: 2;
+  font-size: 16px;
+}
+
+.btn-back {
+  margin-top: 20px;
+  background-color: #616161;
+  color: white;
+  padding: 8px 16px;
+}
+
+.btn-back:hover {
+  background-color: #424242;
+}
+
+.no-data {
+  text-align: center;
+  padding: 20px;
+  font-weight: bold;
+  color: #666;
 }
